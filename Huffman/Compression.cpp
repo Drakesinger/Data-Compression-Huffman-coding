@@ -140,9 +140,6 @@ void CompressFile(HuffCodeMap& CodeMap, const char* InputFile, const char* Outpu
 	else
 	{
 		perror("Could not open files for read and/or write.");
-
-		fclose(InFile);
-		fclose(OutFile);
 		return;
 	}
 

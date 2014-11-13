@@ -62,6 +62,11 @@ int ReadUncompressedFile(int* pFrequencies, const char* InputFile)
 			++pFrequencies[Character];
 		};
 	}
+	else
+	{
+		perror("ReadUncompressedFile().Could not open file.");
+		return EXIT_FAILURE;
+	}
 	if (fclose(TextFile))
 	{
 		perror("Error closing.");

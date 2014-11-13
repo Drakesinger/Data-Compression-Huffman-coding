@@ -36,7 +36,7 @@ int ReadHeader(FILE* InFile, IntCodeMap& OutCodeMap)
 	if (InFile)
 	{
 		int CharacterRead;
-		int CharacterSaved;
+		int CharacterSaved = 0;
 
 		// Get HeaderLength (number of lines in the header).
 		CharacterRead = fgetc(InFile);
@@ -130,7 +130,7 @@ void DecompressFile(const char* InputFile, const char* OutputFile)
 		int CharBuilder = 0;
 		int ConstructedCharSize = 0;
 
-		int ByteRead;
+		int ByteRead = 0;
 
 		while (!feof(InFile))
 		{
@@ -147,6 +147,7 @@ void DecompressFile(const char* InputFile, const char* OutputFile)
 	{
 		perror("DecompressFile(). Could not open file to read/write.");
 		printf("\nError code: \t InputFile %d\tOutputFile %d", ErrorIn, ErrorOut);
+		return;
 	}
 }
 
